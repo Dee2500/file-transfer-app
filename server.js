@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(fileUpload());
 
+// Endpoint to handle file uploads
 app.post('/upload', (req, res) => {
     if (!req.files || Object.keys(req.files).length === 0) {
         return res.status(400).send({ message: 'No files were uploaded.' });
@@ -23,6 +24,7 @@ app.post('/upload', (req, res) => {
     });
 });
 
+// Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
